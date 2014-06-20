@@ -74,11 +74,24 @@ public class TocHw4 {
 				case 6:
 					if(tempchar=='"')
 					{
+						int s6=0;
 						String t=new String();
 						do
 						{
 							tempchar=(char)br.read();
 							t+=tempchar;
+							if(s6==0&&tempchar=='¤j')
+							{
+								s6=1;
+							}
+							else if(s6==1&&tempchar=='¹D')
+							{
+							    break;
+							}
+							else if(s6==1)
+							{
+							    s6=0;
+							}
 						}while(tempchar!='¸ô'&&tempchar!='µó'&&tempchar!='«Ñ'&&tempchar!='"');
 						if(tempchar=='"')
 						{
