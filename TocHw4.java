@@ -224,7 +224,7 @@ public class TocHw4 {
 			Vector<Integer> tempdm;
 			int tmax;
 			int tmin;
-			int dmmax=0;;
+			int dmmax=0;
 			Vector<String> S=new Vector<String>();
 			Vector<Integer> dm=new Vector<Integer>();
 			Vector<Integer> max=new Vector<Integer>();
