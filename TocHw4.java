@@ -74,29 +74,27 @@ public class TocHw4 {
 				case 6:
 					if(tempchar=='"')
 					{
-						int s6=0;
 						String t=new String();
 						do
 						{
 							tempchar=(char)br.read();
 							t+=tempchar;
-							if(s6==0&&tempchar=='大')
-							{
-								s6=1;
-							}
-							else if(s6==1&&tempchar=='道')
-							{
-							    break;
-							}
-							else if(s6==1)
-							{
-							    s6=0;
-							}
-						}while(tempchar!='路'&&tempchar!='街'&&tempchar!='巷'&&tempchar!='"');
+						}while(tempchar!='路'&&tempchar!='街'&&tempchar!='"');
 						if(tempchar=='"')
 						{
-							state=34;
-							continue;
+							if(t.contains("大道"))
+							{
+								t=t.substring(0,t.indexOf("大道")+2);
+							}
+							else if(t.contains("巷"))
+							{
+								t=t.substring(0,t.indexOf("巷")+1);
+							}
+							else
+							{
+								state=34;
+								continue;
+							}
 						}
 						tempHd.road=t;
 						while(tempchar!='"')
@@ -104,7 +102,6 @@ public class TocHw4 {
 							tempchar=(char)br.read();
 						}
 						//System.out.println(t);
-						//if(!tempHd.road.contains(args[2]))
 						state=31;
 					}
 					else
@@ -192,7 +189,7 @@ public class TocHw4 {
 						if(ts!=0)
 						{
 							store.add(tempHd);
-							//System.out.printf("%s,%s,%d,%d\n",tempHd.locate,tempHd.road,tempHd.tradedate,tempHd.price);
+							//System.out.printf("%s,%d,%d\n",tempHd.road,tempHd.tradedate,tempHd.price);
 							tempHd=new Housedata();
 						}
 					}
