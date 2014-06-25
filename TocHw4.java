@@ -1,3 +1,11 @@
+/*
+ * F74006056 劉弘偉
+ * 將網站資料一個一個字抓下來做DFA
+ * 並用skip&&compare去跳過不需要擷取的資料
+ * 每讀完一個object符合就存入vector
+ * 做雙重for迴圈跟if(contains)抓出所有每條路的有多少不同月 並統計最高最低價格
+ * 最後output最多不同月的資訊
+ */
 import java.net.URL;
 import java.net.MalformedURLException;
 import java.net.URLConnection;
